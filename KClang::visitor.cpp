@@ -10,9 +10,13 @@ using namespace clang;
 using namespace llvm;
 
 /*
-Traverse the AST, check if node == CallExpr
-1)if yes then check the callee, ask for the location from SourceLocation and update the llvm::denseMap
-2) move ahead
+Traverse the AST, check if (directCallee exist?)
+1) Extract the name of the directCallee, Location(Source Location + Manager)
+2) Check the exisitence in the heat map, if exist? ++counter: HeatMap.insert()
+
+------------------------------------------
+Have a FunctionInfo class, sizeof(Functioninfo) <= 72 bytes.
+
 */
 
 namespace KClang{
@@ -80,8 +84,7 @@ namespace KClang{
             ++HMap[FD];
           }
 
-          return true;
-
+          return false;
         }
 
 	};
