@@ -1,6 +1,8 @@
 #include "clang/AST/AST.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/AST/decl.h"
+#include "clang/AST/ASTConsumer.h"
+#include "visitor.hpp"
 
 
 
